@@ -1,7 +1,6 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import fs from "node:fs";
 import path from "path";
 import { defineConfig } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
@@ -10,7 +9,7 @@ const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(
 
 export default defineConfig({
   plugins,
-  // 🔴 GitHub Pages için zorunlu: repo adın
+  // GitHub Pages için zorunlu base: repo adınla birebir aynı
   base: "/physics-puzzle-game/",
   resolve: {
     alias: {
@@ -20,10 +19,10 @@ export default defineConfig({
     },
   },
   envDir: path.resolve(import.meta.dirname),
-  // Projenin kökü client klasörü (index.html burada)
+  // Vite kökü "client" klasörü
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    // 🔴 Actions “dist” klasörünü publish ediyor
+    // Çıktılar kökte "dist" klasörüne
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
