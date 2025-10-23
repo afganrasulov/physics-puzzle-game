@@ -10,6 +10,8 @@ const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(
 
 export default defineConfig({
   plugins,
+  // 🔴 GitHub Pages için zorunlu: repo adın
+  base: "/physics-puzzle-game/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -18,14 +20,16 @@ export default defineConfig({
     },
   },
   envDir: path.resolve(import.meta.dirname),
+  // Projenin kökü client klasörü (index.html burada)
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // 🔴 Actions “dist” klasörünü publish ediyor
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
   server: {
     port: 3000,
-    strictPort: false, // Will find next available port if 3000 is busy
+    strictPort: false,
     host: true,
     allowedHosts: [
       ".manuspre.computer",
@@ -36,9 +40,6 @@ export default defineConfig({
       "localhost",
       "127.0.0.1",
     ],
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
+    fs: { strict: true, deny: ["**/.*"] },
   },
 });
