@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizik Bulmacası - Nesne Düşürme Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Fizik Bulmacası</h1>
+            <p class="subtitle">Nesneleri doğru yere düşürerek bulmacayı çöz!</p>
+        </header>
+
+        <div class="game-info">
+            <div class="info-item">
+                <span class="label">Seviye:</span>
+                <span id="level" class="value">1</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Puan:</span>
+                <span id="score" class="value">0</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Hamle:</span>
+                <span id="moves" class="value">0</span>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <canvas id="gameCanvas"></canvas>
+            
+            <div class="instructions">
+                <h3>📋 Nasıl Oynanır?</h3>
+                <ul>
+                    <li>Nesneleri tıklayarak serbest bırakın</li>
+                    <li>Fizik kurallarını kullanarak hedeflere ulaştırın</li>
+                    <li>Tüm yıldızları toplayarak seviyeyi geçin</li>
+                    <li>Engelleri ve platformları stratejik kullanın</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="resetBtn" class="btn btn-reset">🔄 Yeniden Başlat</button>
+            <button id="nextBtn" class="btn btn-next" style="display:none;">➡️ Sonraki Seviye</button>
+            <button id="hintBtn" class="btn btn-hint">💡 İpucu</button>
+        </div>
+
+        <div id="messageBox" class="message-box"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
